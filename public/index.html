@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>thinktree.app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="mylead-verification" content="90f99d62983e9ac23759375ba6eeadb3" />
+  <style>
+    html,body{height:100%;margin:0;display:grid;place-items:center;background:#0b0f14;color:#fff;font-family:system-ui,Arial}
+    a#go{padding:.9rem 1.2rem;border-radius:10px;background:#21c08b;color:#0b0f14;text-decoration:none;font-weight:700}
+    .hint{opacity:.7;margin-top:.75rem;font-size:.9rem}
+  </style>
+</head>
+<body>
+  <div style="text-align:center">
+    <a id="go" href="#" rel="nofollow noopener">Continue</a>
+    <div class="hint">Please - press the button</div>
+  </div>
+
+  <script>
+    (function () {
+      const OFFER = 'https://safeoffers.pro/a/1w3NBHXOxfpDOD';
+
+      const qs = location.search.replace(/^\?/, '');
+      const cid = 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+      const add = (base, p) => base + (base.includes('?') ? '&' : '?') + p;
+
+      let url = OFFER;
+      if (qs) url = add(url, qs);
+      url = add(url, 'cid=' + encodeURIComponent(cid));
+
+      const btn = document.getElementById('go');
+      btn.href = url;
+
+      setTimeout(() => { try { location.replace(url); } catch(e) {} }, 80);
+
+      setTimeout(() => { if (document.visibilityState) btn.click(); }, 1500);
+    })();
+  </script>
+</body>
+</html>
