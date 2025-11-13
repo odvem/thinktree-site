@@ -1,10 +1,33 @@
 <!doctype html>
-<meta charset="utf-8"><title>thinktree.app</title>
-<meta name="mylead-verification" content="90f99d62983e9ac23759375ba6eeadb3">
-<a id="go" href="#" rel="nofollow">Continue</a>
-<script>
-  const OFFER = 'https://safeoffers.pro/a/1w3NBHXOxfpDOD';
-  const qs = window.location.search;           // ?s1=...&zone=...
-  const sep = OFFER.includes('?') ? '&' : '?';
-  document.getElementById('go').href = OFFER + (qs ? sep + qs.slice(1) : '');
-</script>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>thinktree.app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="mylead-verification" content="90f99d62983e9ac23759375ba6eeadb3" />
+  <style>
+    html,body{height:100%;margin:0;font-family:system-ui,Arial,sans-serif;background:#0b0f14;color:#fff;display:grid;place-items:center}
+    a#go{display:inline-block;padding:.9rem 1.2rem;border-radius:10px;background:#21c08b;color:#0b0f14;text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <a id="go" href="#" rel="nofollow noopener noreferrer">Continue</a>
+
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://safeoffers.pro/a/1w3NBHXOxfpDOD" />
+  </noscript>
+
+  <script>
+    (() => {
+      const OFFER = 'https://safeoffers.pro/a/1w3NBHXOxfpDOD';
+      const qs = location.search.replace(/^\?/, '');       // ?s1=...&zone=... -> s1=...&zone=...
+      const sep = OFFER.includes('?') ? '&' : '?';
+      const url = qs ? OFFER + sep + qs : OFFER;
+      const btn = document.getElementById('go');
+      btn.href = url;
+      setTimeout(() => location.replace(url), 300);
+    })();
+  </script>
+</body>
+</html>
