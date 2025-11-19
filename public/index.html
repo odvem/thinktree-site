@@ -3,35 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <title>thinktree.app</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex,nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="mylead-verification" content="90f99d62983e9ac23759375ba6eeadb3" />
-  <style>
-    html,body{height:100%;margin:0;display:grid;place-items:center;background:#0b0f14;color:#fff;font-family:system-ui,Arial}
-    a#go{padding:.9rem 1.2rem;border-radius:10px;background:#21c08b;color:#0b0f14;text-decoration:none;font-weight:700}
-    .hint{opacity:.7;margin-top:.75rem;font-size:.9rem}
-  </style>
-</head>
-<body>
-  <div style="text-align:center">
-    <a id="go" href="#" rel="nofollow noopener">Continue</a>
-    <div class="hint">Please — press the button</div>
-  </div>
 
   <script>
-    (function () {
-      const OFFER = 'https://mzz2hrr.newdatingjourney.com/llbpx3g';
+  (function () {
+    var OFFER = 'https://mzz2hrr.newdatingjourney.com/llbpx3g';
+    
+    var params = new URLSearchParams(location.search);
+    // если Propeller передал clickid не в cid — подхватим
+    if (!params.has('cid') && params.has('clickid')) {
+      params.set('cid', params.get('clickid'));
+      params.delete('clickid');
+    }
 
-      const params = new URLSearchParams(location.search);
-      if (!params.get('cid')) {
-        params.set('cid', 'test-' + Date.now());
-      }
+    if (!params.has('cid')) {
+      params.set('cid', 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2,8));
+    }
 
-      const finalUrl = OFFER + (params.toString() ? '?' + params.toString() : '');
-      const btn = document.getElementById('go');
-      btn.href = finalUrl;
-      setTimeout(() => { location.replace(finalUrl); }, 800);
-    })();
+    var url = OFFER + (params.toString() ? '?' + params.toString() : '');
+    
+    location.replace(url);
+  })();
   </script>
-</body>
+
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://mzz2hrr.newdatingjourney.com/llbpx3g">
+  </noscript>
+</head>
+<body></body>
 </html>
