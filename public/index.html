@@ -15,27 +15,22 @@
 <body>
   <div style="text-align:center">
     <a id="go" href="#" rel="nofollow noopener">Continue</a>
-    <div class="hint">Please - press the button</div>
+    <div class="hint">Please — press the button</div>
   </div>
 
   <script>
     (function () {
-      const OFFER = 'https://safeoffers.pro/a/1w3NBHXOxfpDOD';
+      const OFFER = 'https://mzz2hrr.newdatingjourney.com/llbpx3g';
 
-      const qs = location.search.replace(/^\?/, '');
-      const cid = 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
-      const add = (base, p) => base + (base.includes('?') ? '&' : '?') + p;
+      const params = new URLSearchParams(location.search);
+      if (!params.get('cid')) {
+        params.set('cid', 'test-' + Date.now());
+      }
 
-      let url = OFFER;
-      if (qs) url = add(url, qs);
-      url = add(url, 'cid=' + encodeURIComponent(cid));
-
+      const finalUrl = OFFER + (params.toString() ? '?' + params.toString() : '');
       const btn = document.getElementById('go');
-      btn.href = url;
-
-      setTimeout(() => { try { location.replace(url); } catch(e) {} }, 80);
-
-      setTimeout(() => { if (document.visibilityState) btn.click(); }, 1500);
+      btn.href = finalUrl;
+      setTimeout(() => { location.replace(finalUrl); }, 800);
     })();
   </script>
 </body>
